@@ -7,20 +7,20 @@ on:
 jobs:
   tweet:
     runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-python@v4
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-        - name: Install dependencies
-          run: |
-              python -m pip install --upgrade pip
-              if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          env:
-            CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
-            CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
-            ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-            ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
-        - name: Run script
-          run: if [ -f tweetscript.py ]; then python tweetscript.py; fi
-        
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        env:
+          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+      - name: Run script
+        run: if [ -f tweetscript.py ]; then python tweetscript.py; fi
