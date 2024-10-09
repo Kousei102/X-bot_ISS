@@ -18,7 +18,7 @@ client = tweepy.Client(
 
 # 現在時刻を取得
 nowtime = datetime.now()
-formatted_time = nowtime.strftime("%Y-%m-%d %H:%M:%S")
+formatted_time = nowtime.strftime("%H:%M:%S")
 
 import requests
 
