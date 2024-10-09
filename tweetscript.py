@@ -29,7 +29,7 @@ latitude = data['iss_position']['latitude']
 longitude = data['iss_position']['longitude']
 
 # 逆ジオコーディングを使って場所の名前を取得
-geocoding_url = f"https://api.opencagedata.com/geocode/v1/json?q={latitude}+{longitude}&key={OPENCAGE_API_KEY}"
+geocoding_url = f"https://api.opencagedata.com/geocode/v1/json?q={latitude}+{longitude}&key={OPENCAGE_API_KEY}&language=ja"
 geo_response = requests.get(geocoding_url)
 geo_data = geo_response.json()
 
