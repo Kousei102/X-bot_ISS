@@ -1,5 +1,6 @@
 print("Hello World")
 
+"""
 import os
 import tweepy
 
@@ -29,3 +30,4 @@ tweet_text = f"ISSの現在の位置\n緯度：{data['iss_position']['latitude']
 
 #ツイートする
 client.create_tweet(text=tweet_text)
+"""
