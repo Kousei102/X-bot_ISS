@@ -3,6 +3,9 @@ name: bot-tweet_1
 on:
   schedule:
     - cron: '0 * * * *'
+    - cron: '15 * * * *'
+    - cron: '30 * * * *'
+    - cron: '45 * * * *'
   workflow_dispatch:  # 手動でワークフローを実行できるトリガー
 
 jobs:
