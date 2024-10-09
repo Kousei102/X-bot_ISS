@@ -39,7 +39,10 @@ else:
     location = "海の上"
 
 # ツイート内容を作成
-tweet_text = f"時刻: {formatted_time}\n緯度: {latitude}, 経度: {longitude}\n場所: {location}の付近です"
+if location == "海の上":
+    tweet_text = f"時刻: {formatted_time}\n緯度: {latitude}, 経度: {longitude}\n場所: {location}です"
+else:
+    tweet_text = f"時刻: {formatted_time}\n緯度: {latitude}, 経度: {longitude}\n場所: {location}の付近です"
 
 # ツイートを送信
 client.create_tweet(text=tweet_text)
