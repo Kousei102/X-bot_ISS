@@ -23,4 +23,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
       - name: Run script
-        run: if [ -f tweetscript.py ]; then python tweetscript.py; fi
+        run: python tweetscript.py
