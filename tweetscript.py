@@ -20,7 +20,7 @@ client = tweepy.Client(
 
 # 現在時刻を取得
 nowtime = datetime.now()
-formatted_time = nowtime.strftime("%Y-%m-%d %H:%M:%S")
+formatted_time = nowtime.strftime("%H:%M:%S")
 
 # ISSの位置情報を取得
 response = requests.get('http://api.open-notify.org/iss-now.json')
@@ -39,7 +39,7 @@ else:
     location = "海の上"
 
 # ツイート内容を作成
-tweet_text = f"時刻: {formatted_time}の時点でのISSの位置\n緯度: {latitude}, 経度: {longitude}\n場所: {location}の付近です"
+tweet_text = f"時刻: {formatted_time}\n緯度: {latitude}, 経度: {longitude}\n場所: {location}の付近です"
 
 # ツイートを送信
 client.create_tweet(text=tweet_text)
