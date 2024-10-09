@@ -44,7 +44,7 @@ else:
 if location == "海の上":
     tweet_text = f"{formatted_time}（日本時間）\n緯度: {latitude}, 経度: {longitude}\n{location}です"
 else:
-    tweet_text = f"時刻: {formatted_time}（日本時間）\n緯度: {latitude}, 経度: {longitude}\n{location}の付近です"
+    tweet_text = f"{formatted_time}（日本時間）\n緯度: {latitude}, 経度: {longitude}\n{location}の付近です"
 
 # ツイートを送信
 client.create_tweet(text=tweet_text)
