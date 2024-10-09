@@ -2,6 +2,7 @@ import os
 import tweepy
 from datetime import datetime
 import requests
+import pytz
 
 # secretsで設定した値をとる
 CONSUMER_KEY = os.environ['CONSUMER_KEY']
@@ -19,7 +20,8 @@ client = tweepy.Client(
 )
 
 # 現在時刻を取得
-nowtime = datetime.now()
+japan_timezone = pytz.timezone('Asia/Tokyo')
+nowtime = datetime.now(japan_timezone)
 formatted_time = nowtime.strftime("%H:%M:%S")
 
 # ISSの位置情報を取得
@@ -40,9 +42,9 @@ else:
 
 # ツイート内容を作成
 if location == "海の上":
-    tweet_text = f"時刻: {formatted_time}\n緯度: {latitude}, 経度: {longitude}\n場所: {location}です"
+    tweet_text = f"{formatted_time}（日本時間）\n緯度: {latitude}, 経度: {longitude}\n{location}です"
 else:
-    tweet_text = f"時刻: {formatted_time}\n緯度: {latitude}, 経度: {longitude}\n場所: {location}の付近です"
+    tweet_text = f"時刻: {formatted_time}（日本時間）\n緯度: {latitude}, 経度: {longitude}\n{location}の付近です"
 
 # ツイートを送信
 client.create_tweet(text=tweet_text)
